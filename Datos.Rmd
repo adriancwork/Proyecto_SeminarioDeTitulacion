@@ -1,0 +1,32 @@
+---
+title: "Datos"
+author: "Adrian Figueroa Rodriguez"
+date: "28 de abril de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Importacion correcta de datos
+datos <- read.csv(file = "TSLA.csv", as.is = TRUE)
+datos$Date <- as.Date(datos$Date)
+str(datos)
+
+View(datos)
+
+## Datos
+registros <- sum(count.fields("TSLA.csv")) - 2
+
+## Fechas subset a años especificos
+a2012 <- subset(datos, (Date < "2013-01-01" & Date >= "2012-01-01"))
+a2013 <- subset(datos, (Date < "2014-01-01" & Date >= "2013-01-01"))
+a2014 <- subset(datos, (Date < "2015-01-01" & Date >= "2014-01-01"))
+a2015 <- subset(datos, (Date < "2016-01-01" & Date >= "2015-01-01"))
+a2016 <- subset(datos, (Date < "2017-01-01" & Date >= "2016-01-01"))
+a2017 <- subset(datos, (Date < "2018-01-01" & Date >= "2017-01-01"))
+
+```
+
